@@ -46,7 +46,7 @@ public class UserEntity {
     @Column(nullable = true)
     String phone;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     String document;
 
     @Column(name = "is_enabled")

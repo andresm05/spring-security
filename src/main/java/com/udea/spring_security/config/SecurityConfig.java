@@ -30,6 +30,7 @@ import lombok.RequiredArgsConstructor;
 public class SecurityConfig {
 
     private final JwtUtils jwtUtils;
+    private final Oauth2LoginSuccessHandler oauth2LoginSuccessHandler;
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
@@ -46,6 +47,9 @@ public class SecurityConfig {
 
         //     http.anyRequest().authenticated();
         // })
+        .oauth2Login(customizer ->{
+            customizer.successHandler(oauth2LoginSuccessHandler);
+        })
         .addFilterBefore(new JwtTokenValidator(jwtUtils), BasicAuthenticationFilter.class)
         .build();
     }
