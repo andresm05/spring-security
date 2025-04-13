@@ -1,10 +1,8 @@
 ## Spring Security Starter Project
-===============================
 
 Este proyecto tiene como objetivo proporcionar una **estructura base para implementar seguridad con Spring Security versión 3.4.4**, utilizando autenticación basada en **JWT** y **login con Google**. Además, incluye la documentación de la API expuesta mediante **Swagger** para facilitar el desarrollo y pruebas de los endpoints.
 
 ### 🔐 Características
-------------------
 
 *   Autenticación y autorización con **Spring Security 3.4.4**
     
@@ -91,7 +89,7 @@ Una vez levantado el servidor, puedes acceder a la documentación de la API en:
 http://localhost:8080/swagger-ui.html
 ```
 
-▶️ Ejecución
+### ▶️ Ejecución
 
 Asegúrate de tener tu archivo .env listo y luego ejecuta el proyecto con:
 
