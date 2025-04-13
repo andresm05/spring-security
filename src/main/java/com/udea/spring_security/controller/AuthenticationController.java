@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.udea.spring_security.service.auth.AuthService;
 
-import jakarta.validation.Valid;
-
-import com.udea.spring_security.dto.auth.AuthDtoSignInRequest;
 import com.udea.spring_security.dto.auth.AuthDtoLoginRequest;
 import com.udea.spring_security.dto.auth.AuthDtoResponse;
+import com.udea.spring_security.dto.auth.AuthDtoSignInRequest;
+import com.udea.spring_security.service.auth.AuthService;
+
+import jakarta.servlet.http.Cookie;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/auth")
@@ -27,14 +28,24 @@ public class AuthenticationController {
     @PostMapping("/log-in")
     public ResponseEntity<AuthDtoResponse> logIn(@RequestBody @Valid AuthDtoLoginRequest authDtoRequest) {
 
-        return new ResponseEntity<>(authService.logIn(authDtoRequest), HttpStatus.OK);
+        //save the token in the cookies
+        AuthDtoResponse authDtoResponse = authService.logIn(authDtoRequest);
+        Cookie cookie = new Cookie("token", authDtoResponse.getToken());
+        cookie.setPath("/");
+
+        return new ResponseEntity<>(authDtoResponse, HttpStatus.OK);
 
     }
 
     @PostMapping("/sign-up")
     public ResponseEntity<AuthDtoResponse> signUp(@RequestBody @Valid AuthDtoSignInRequest authDtoRequest) {
 
-        return new ResponseEntity<>(authService.signUp(authDtoRequest), HttpStatus.CREATED);
+        //save the token in the cookies
+        AuthDtoResponse authDtoResponse = authService.signUp(authDtoRequest);
+        Cookie cookie = new Cookie("token", authDtoResponse.getToken());
+        cookie.setPath("/");
+
+        return new ResponseEntity<>(authDtoResponse, HttpStatus.CREATED);
 
     }
 
