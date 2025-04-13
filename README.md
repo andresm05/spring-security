@@ -20,11 +20,11 @@ Este proyecto tiene como objetivo proporcionar una **estructura base para implem
 🚀 Tecnologías
 --------------
 
-*   Java 17+
+*   Java 21+
     
-*   Spring Boot
+*   Spring Boot 3.4.4
     
-*   Spring Security 3.4.4
+*   Spring Security
     
 *   JWT
     
@@ -37,7 +37,7 @@ Este proyecto tiene como objetivo proporcionar una **estructura base para implem
 
 En la raíz del proyecto, se debe crear un archivo .env con el siguiente contenido:
  ```bash
-SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/tu_basededatos
+SPRING_DATASOURCE_URL=url_base_de_datos
 
 SPRING_DATASOURCE_USERNAME=tu_usuario
 
@@ -45,7 +45,7 @@ SPRING_DATASOURCE_PASSWORD=tu_contraseña
 
 JWT_SECRET=tu_secreto_jwt
 
-JWT_EXPIRATION=86400000
+SPRING_USER_GENERATOR=codigo_de_usuario
 
 GOOGLE_CLIENT_ID=tu_client_id_google
 
