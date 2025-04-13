@@ -1,9 +1,9 @@
-Spring Security Starter Project
+## Spring Security Starter Project
 ===============================
 
 Este proyecto tiene como objetivo proporcionar una **estructura base para implementar seguridad con Spring Security versión 3.4.4**, utilizando autenticación basada en **JWT** y **login con Google**. Además, incluye la documentación de la API expuesta mediante **Swagger** para facilitar el desarrollo y pruebas de los endpoints.
 
-🔐 Características
+### 🔐 Características
 ------------------
 
 *   Autenticación y autorización con **Spring Security 3.4.4**
@@ -17,7 +17,7 @@ Este proyecto tiene como objetivo proporcionar una **estructura base para implem
 *   Configuración centralizada mediante un archivo .env
     
 
-🚀 Tecnologías
+### 🚀 Tecnologías
 --------------
 
 *   Java 21+
@@ -33,7 +33,7 @@ Este proyecto tiene como objetivo proporcionar una **estructura base para implem
 *   OAuth2 (Login con Google)
     
 
-📁 Estructura del archivo .env
+### 📁 Estructura del archivo .env
 
 En la raíz del proyecto, se debe crear un archivo .env con el siguiente contenido:
  ```bash
@@ -52,7 +52,7 @@ GOOGLE_CLIENT_ID=tu_client_id_google
 GOOGLE_CLIENT_SECRET=tu_client_secret_google
 ```
 
-🔧 Cómo obtener tu Google Client ID y Secret
+### 🔧 Cómo obtener tu Google Client ID y Secret
 --------------------------------------------
 
 Para poder autenticar a los usuarios mediante Google, necesitas configurar un proyecto en Google Cloud Console. Sigue estos pasos:
@@ -73,7 +73,17 @@ Para poder autenticar a los usuarios mediante Google, necesitas configurar un pr
 http://localhost:8080/login/oauth2/code/google
 ```
 
-📄 Documentación con Swagger
+### 🔑 Ruta para iniciar sesión con Google
+
+Para redirigir al usuario al flujo de autenticación de Google, puedes usar el siguiente endpoint:
+
+ ```bash
+POST /oauth2/authorization/google
+```
+
+#### ⚠️ Reemplaza google si más adelante deseas usar otro proveedor de OAuth2 (como GitHub, Facebook, etc.).
+
+### 📄 Documentación con Swagger
 
 Una vez levantado el servidor, puedes acceder a la documentación de la API en:
 
